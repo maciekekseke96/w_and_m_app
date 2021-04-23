@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
+import AddDepositForm from "./Components/AddDepositForm/AddDepositForm";
 
 function App(props) {
   return (
     <div className="App">
-      <h1>Here is the place for App :)</h1>
+      <AddDepositForm />
     </div>
   );
 }

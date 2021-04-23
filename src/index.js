@@ -4,11 +4,16 @@ import "./index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import { storeReducer, customersReducer } from "./reducers/index";
-
-const rootReducer = combineReducers({
+import {
   storeReducer,
   customersReducer,
+  addDepositFormDataReducer,
+} from "./reducers/index";
+
+const rootReducer = combineReducers({
+  storeBase: storeReducer,
+  customersBase: customersReducer,
+  addDepositFormData: addDepositFormDataReducer,
 });
 
 const store = createStore(

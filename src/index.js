@@ -4,10 +4,11 @@ import "./index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import sampleReducer from "./reducers/index";
+import { storeReducer, customersReducer } from "./reducers/index";
 
 const rootReducer = combineReducers({
-  sampleReducer,
+  storeReducer,
+  customersReducer,
 });
 
 const store = createStore(

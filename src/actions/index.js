@@ -1,7 +1,8 @@
-const sampleAction = () => {
+const inputChangeAction = (type, value) => {
   return {
-    type: "RUN",
+    type,
+    value,
   };
 };
 
-export default sampleAction;
+export default inputChangeAction;

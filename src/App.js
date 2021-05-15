@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 import AddDepositForm from "./Components/AddDepositForm/AddDepositForm";
 
 function App(props) {

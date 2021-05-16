@@ -5,16 +5,16 @@ const customersInitialState = require("./../temp_API/customers.json");
 
 const addDepositFormDataInitialState = {
   addingDate: getTodayDate(),
-  depositType: "",
+  depositType: "Opony",
   depositName: "",
-  tiresAmmount: 0,
-  tiresSeason: "",
+  tiresAmmount: null,
+  tiresSeason: "Letnie",
   storeID: "",
   wholeWheels: {
-    rimsAmmount: 0,
-    screwsAmmount: 0,
-    hubcapsAmmount: 0,
-    TPMSSensorsAmmount: 0,
+    rimsAmmount: null,
+    screwsAmmount: null,
+    hubcapsAmmount: null,
+    TPMSSensorsAmmount: null,
   },
   customerID: "",
   comments: "",
@@ -40,13 +40,15 @@ const addDepositFormDataReducer = (
     case "DEPOSIT_NAME_CHANGE":
       return { ...store, depositName: action.value };
     case "TYRES_AMMOUNT_CHANGE":
-      return { ...store, tyresAmmount: action.value };
+      return { ...store, tiresAmmount: action.value };
     case "TYRES_SEASON_CHANGE":
       return { ...store, tiresSeason: action.value };
     case "DEPOSIT_TYPE_CHANGE":
       return { ...store, depositType: action.value };
     case "STORE_ID_CHANGE":
       return { ...store, storeID: action.value };
+    case "CUSTOMER_ID_CHANGE":
+      return { ...store, customerID: action.value };
     case "COMMENTS_FIELD_CHANGE":
       return { ...store, comments: action.value };
     case "RIMS_AMMOUNT_CHANGE":

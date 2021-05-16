@@ -6,6 +6,30 @@ import { getTodayDate } from "./../../formatFunctions/formatFunctions";
 import "./AddDepositForm.scss";
 
 const AddDepositForm = (props) => {
+  const addDeposit = (e) => {
+    e.preventDefault();
+
+    const addDepositFormData = props.addDepositFormData;
+
+    const basicFieldsToCheck = [
+      "addingDate",
+      "depositType",
+      "depositName",
+      "tiresAmmount",
+      "tiresSeason",
+      "storeID",
+      "customerID",
+    ];
+
+    const specificFieldsToCheck = [
+      "rimsAmmount",
+      "screwsAmmount",
+      "hubcapsAmmount",
+      "TPMSSensorsAmmount",
+    ];
+
+    console.log(JSON.stringify(addDepositFormData));
+  };
   return (
     <form className="addDepositForm">
       <label>Data dodania</label>
@@ -51,31 +75,46 @@ const AddDepositForm = (props) => {
         <option>Zimowe</option>
       </select>
       <label>ID magazynu</label>
-      <input
+      <select
         onChange={(e) => {
           props.handleInputChange("STORE_ID_CHANGE", e.target.value);
         }}
         type="text"
-      ></input>
+      >
+        <option></option>
+        {props.storeBase.map((store) => {
+          return <option key={store.id}>{store.id}</option>;
+        })}
+      </select>
       {props.addDepositFormData.depositType === "Koła" && <WheelsFormSection />}
       <label>ID klienta</label>
-      <input
+
+      <select
         onChange={(e) => {
           props.handleInputChange("CUSTOMER_ID_CHANGE", e.target.value);
         }}
         type="text"
-      ></input>
+      >
+        <option></option>
+        {props.customersBase.map((customer) => {
+          return <option key={customer.id}>{customer.id}</option>;
+        })}
+      </select>
       <label>Uwagi</label>
       <textarea
+        maxLength={150}
         onChange={(e) => {
           props.handleInputChange("COMMENTS_FIELD_CHANGE", e.target.value);
         }}
       ></textarea>
+      <button onClick={addDeposit}>Dodaj</button>
     </form>
   );
 };
 
 const mapStateToProps = (state) => ({
+  storeBase: state.storeBase,
+  customersBase: state.customersBase,
   addDepositFormData: state.addDepositFormData,
 });
 

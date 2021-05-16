@@ -16,7 +16,6 @@ const WheelsFormSection = (props) => {
         onChange={(e) => {
           props.handleInputChange("SCREWS_AMMOUNT_CHANGE", e.target.value);
         }}
-        type="text"
         type="number"
         min={1}
       ></input>
@@ -25,18 +24,16 @@ const WheelsFormSection = (props) => {
         onChange={(e) => {
           props.handleInputChange("HUBCAPS_AMMOUNT_CHANGE", e.target.value);
         }}
-        type="text"
         type="number"
-        min={1}
+        min={0}
       ></input>
       <label>Liczba czujników TPMS</label>
       <input
         onChange={(e) => {
           props.handleInputChange("TPMS_SENSORS_CHANGE", e.target.value);
         }}
-        type="text"
         type="number"
-        min={1}
+        min={0}
       ></input>
     </div>
   );

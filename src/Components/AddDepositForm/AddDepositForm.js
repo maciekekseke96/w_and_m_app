@@ -80,9 +80,10 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="storeId"
-          options={['', ...this.props.storeBase.map((store) => store.id)]}
+          options={[ ...this.props.storeBase.map((store) => store.id)]}
           label="ID magazynu"
           value={this.state.storeId}
+          withInfoOption
         />
         {this.state.depositType === 'Koła' && (
           <WheelsFormSection
@@ -94,11 +95,11 @@ class AddDepositForm extends Component {
           handleChange={this.handleInputChange}
           name="customerId"
           options={[
-            '',
             ...this.props.customersBase.map((customer) => customer.id),
           ]}
           label="ID klienta"
           value={this.state.customerId}
+          withInfoOption
         />
         <FormTextarea
           maxLength={150}

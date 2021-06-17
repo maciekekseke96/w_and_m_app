@@ -7,13 +7,11 @@ import { createStore, combineReducers } from "redux";
 import {
   storeReducer,
   customersReducer,
-  addDepositFormDataReducer,
 } from "./reducers/index";
 
 const rootReducer = combineReducers({
   storeBase: storeReducer,
   customersBase: customersReducer,
-  addDepositFormData: addDepositFormDataReducer,
 });
 
 const store = createStore(

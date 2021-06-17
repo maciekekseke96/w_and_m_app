@@ -16,15 +16,15 @@ class AddDepositForm extends Component {
       addingDate: getTodayDate(),
       depositType: 'Opony',
       depositName: '',
-      tiresAmmount: undefined,
+      tiresAmmount: 1,
       season: 'Letnie',
-      storeId: undefined,
-      customerId: undefined,
+      storeId: '',
+      customerId: '',
       comments: '',
-      rimsAmmount: undefined,
-      screwsAmmount: undefined,
-      hubcapsAmmount: undefined,
-      TPMSSensorsAmmount: undefined,
+      rimsAmmount: 1,
+      screwsAmmount: 1,
+      hubcapsAmmount: 0,
+      TPMSSensorsAmmount: 0,
     };
   }
   addDeposit = (event) => {
@@ -92,7 +92,7 @@ class AddDepositForm extends Component {
         )}
         <FormSelect
           handleChange={this.handleInputChange}
-          name="customerID"
+          name="customerId"
           options={[
             '',
             ...this.props.customersBase.map((customer) => customer.id),

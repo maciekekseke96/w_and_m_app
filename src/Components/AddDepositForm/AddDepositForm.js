@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import WheelsFormSection from '../WheelsFormSection/WheelsFormSection';
-import FormInput from '../FormInput/FormInput';
-import FormSelect from '../FormSelect/FormSelect';
-import FormTextarea from '../FormTextarea/FormTextarea';
-import CustomButton from '../CustomButton/CustomButton';
-import { getTodayDate } from './../../formatFunctions/formatFunctions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import WheelsFormSection from "../WheelsFormSection/WheelsFormSection";
+import FormInput from "../FormInput/FormInput";
+import FormSelect from "../FormSelect/FormSelect";
+import FormTextarea from "../FormTextarea/FormTextarea";
+import CustomButton from "../CustomButton/CustomButton";
+import { getTodayDate } from "./../../formatFunctions/formatFunctions";
 
-import './AddDepositForm.scss';
+import "./AddDepositForm.scss";
 
 class AddDepositForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       addingDate: getTodayDate(),
-      depositType: 'Opony',
-      depositName: '',
+      depositType: "Opony",
+      depositName: "",
       tiresAmmount: 1,
-      season: 'Letnie',
-      storeId: '',
-      customerId: '',
-      comments: '',
+      season: "Letnie",
+      storeId: "",
+      customerId: "",
+      comments: "",
       rimsAmmount: 1,
       screwsAmmount: 1,
       hubcapsAmmount: 0,
@@ -29,7 +29,11 @@ class AddDepositForm extends Component {
   }
   addDeposit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    console.log({
+      ...this.state,
+      storeId: this.state.storeId.replace(/[^0-9]/g, ""),
+      customerId: this.state.customerId.replace(/[^0-9]/g, ""),
+    });
   };
 
   handleInputChange = (event) => {
@@ -51,7 +55,7 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="depositType"
-          options={['Opony', 'Koła']}
+          options={["Opony", "Koła"]}
           label="Typ Depozytu"
           value={this.state.depositType}
         />
@@ -73,19 +77,20 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="season"
-          options={['Letnie', 'Zimowe']}
+          options={["Letnie", "Zimowe"]}
           label="Sezon"
           value={this.state.season}
         />
         <FormSelect
           handleChange={this.handleInputChange}
           name="storeId"
-          options={[ ...this.props.storeBase.map((store) => store.id)]}
+          options={[...this.props.storeBase]}
           label="ID magazynu"
           value={this.state.storeId}
           withInfoOption
+          IdAndNameOption
         />
-        {this.state.depositType === 'Koła' && (
+        {this.state.depositType === "Koła" && (
           <WheelsFormSection
             handleInputChange={this.handleInputChange}
             state={this.state}
@@ -94,12 +99,11 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="customerId"
-          options={[
-            ...this.props.customersBase.map((customer) => customer.id),
-          ]}
+          options={[...this.props.customersBase]}
           label="ID klienta"
           value={this.state.customerId}
           withInfoOption
+          IdAndNameOption
         />
         <FormTextarea
           maxLength={150}

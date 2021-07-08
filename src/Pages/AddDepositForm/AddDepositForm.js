@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import WheelsFormSection from '../WheelsFormSection/WheelsFormSection';
-import FormInput from '../FormInput/FormInput';
-import FormSelect from '../FormSelect/FormSelect';
-import FormTextarea from '../FormTextarea/FormTextarea';
-import CustomButton from '../CustomButton/CustomButton';
+import WheelsFormSection from './../../Components/WheelsFormSection/WheelsFormSection';
+import FormInput from './../../Components/FormInput/FormInput';
+import FormSelect from './../../Components/FormSelect/FormSelect';
+import FormTextarea from './../../Components/FormTextarea/FormTextarea';
+import CustomButton from './../../Components/CustomButton/CustomButton'
 import { getTodayDate } from './../../formatFunctions/formatFunctions';
 
 import './AddDepositForm.scss';
@@ -80,7 +80,7 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="storeId"
-          options={[...this.props.storeBase]}
+          options={[...this.props.storageBase]}
           label="ID magazynu"
           value={this.state.storeId}
           withInfoOption
@@ -95,7 +95,7 @@ class AddDepositForm extends Component {
         <FormSelect
           handleChange={this.handleInputChange}
           name="customerId"
-          options={[...this.props.customersBase]}
+          options={[...this.props.customerBase]}
           label="ID klienta"
           value={this.state.customerId}
           withInfoOption
@@ -115,8 +115,8 @@ class AddDepositForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  storeBase: state.storeBase,
-  customersBase: state.customersBase,
+  storageBase: state.storageBase,
+  customerBase: state.customerBase,
 });
 
 export default connect(mapStateToProps, {})(AddDepositForm);

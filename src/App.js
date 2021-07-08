@@ -1,11 +1,16 @@
-import AddDepositForm from "./Components/AddDepositForm/AddDepositForm";
+import { Switch, Route } from 'react-router-dom';
+import AddDepositForm from './Pages/AddDepositForm/AddDepositForm';
+import DepositsList from './Pages/DepostisList/DepositsList';
 
-function App(props) {
+const App = () => {
   return (
     <div className="App">
-      <AddDepositForm />
+      <Switch>
+        <Route exact path="/" component={AddDepositForm} />
+        <Route path="/depositsList" component={DepositsList} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;

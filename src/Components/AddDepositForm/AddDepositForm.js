@@ -29,11 +29,7 @@ class AddDepositForm extends Component {
   }
   addDeposit = (event) => {
     event.preventDefault();
-    console.log({
-      ...this.state,
-      storeId: this.state.storeId.replace(/[^0-9]/g, ''),
-      customerId: this.state.customerId.replace(/[^0-9]/g, ''),
-    });
+    console.log(this.state);
   };
 
   handleInputChange = (event) => {

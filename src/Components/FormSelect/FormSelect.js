@@ -19,6 +19,7 @@ const FormSelect = ({
             <option
               key={index}
               className="formSelectOption"
+              value={option.id}
             >{`${option.id} - ${option.name}`}</option>
           ) : (
             <option key={index} className="formSelectOption">

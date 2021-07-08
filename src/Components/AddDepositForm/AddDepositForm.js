@@ -84,7 +84,7 @@ class AddDepositForm extends Component {
           label="ID magazynu"
           value={this.state.storeId}
           withInfoOption
-          IdAndNameOption
+          idAndNameOption
         />
         {this.state.depositType === 'Koła' && (
           <WheelsFormSection
@@ -99,7 +99,7 @@ class AddDepositForm extends Component {
           label="ID klienta"
           value={this.state.customerId}
           withInfoOption
-          IdAndNameOption
+          idAndNameOption
         />
         <FormTextarea
           maxLength={150}

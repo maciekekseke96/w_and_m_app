@@ -5,7 +5,7 @@ const FormSelect = ({
   handleChange,
   options,
   withInfoOption,
-  IdAndNameOption,
+  idAndNameOption,
   ...otherProps
 }) => {
   return (
@@ -15,12 +15,12 @@ const FormSelect = ({
           <option defaultValue hidden>{`Wybierz ${label}`}</option>
         ) : null}
         {options.map((option, index) =>
-          IdAndNameOption ? (
+          idAndNameOption ? (
             <option
               key={index}
               className="formSelectOption"
               value={option.id}
-            >{`${option.id} - ${option.name}`}</option>
+            >{option.name}</option>
           ) : (
             <option key={index} className="formSelectOption">
               {option}
